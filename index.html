@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(2rem, 6vw, 5rem);
+      padding: clamp(1.75rem, 6vw, 5rem);
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       background: linear-gradient(160deg, #0f4c5c 0%, #2a9d8f 45%, #b7e4c7 100%);
       color: rgba(255, 255, 255, 0.95);
@@ -27,7 +27,6 @@
       gap: clamp(1.5rem, 4vw, 2.5rem);
       width: min(90vw, 32rem);
       text-align: center;
-      text-transform: lowercase;
     }
     h1 {
       font-size: clamp(2.75rem, 12vw, 6.5rem);
@@ -37,57 +36,111 @@
       text-shadow:
         0 0.5rem 1.5rem rgba(0, 0, 0, 0.25),
         0 0.25rem 0.75rem rgba(15, 76, 92, 0.3);
+      text-transform: lowercase;
     }
     .dictionary {
       display: grid;
-      gap: 0.75rem;
-      justify-items: center;
-      letter-spacing: 0.08rem;
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+      justify-items: stretch;
+      letter-spacing: 0.04rem;
+      text-align: left;
+      max-width: 28rem;
     }
     .dictionary__pronunciation {
       font-size: clamp(0.9rem, 2.5vw, 1rem);
       text-transform: none;
       letter-spacing: 0.18rem;
+      margin: 0;
+      text-align: center;
     }
     .dictionary__part {
-      font-size: clamp(0.75rem, 2.3vw, 0.85rem);
-      text-transform: uppercase;
-      letter-spacing: 0.35rem;
+      font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+      letter-spacing: 0.28rem;
+      text-transform: none;
+      margin: 0;
+      text-align: left;
     }
     .dictionary__definition {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
       font-size: clamp(1rem, 3.5vw, 1.15rem);
       line-height: 1.6;
-      max-width: 24rem;
+      margin: 0;
+      text-transform: none;
     }
-    .dictionary__definition span {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.3rem;
-      display: inline-block;
-      margin-right: 0.5rem;
+    .dictionary__label {
+      font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+      letter-spacing: 0.22rem;
+      text-transform: none;
+      white-space: nowrap;
+    }
+    .dictionary__sense-list {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 1rem;
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      line-height: 1.7;
+      text-transform: none;
+      list-style-position: outside;
+      hyphens: auto;
+      overflow-wrap: anywhere;
+    }
+    .dictionary__sense-list li {
+      margin: 0;
+    }
+    .dictionary__note {
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      line-height: 1.7;
+      margin: 0;
+      text-transform: none;
+      hyphens: auto;
+      overflow-wrap: anywhere;
     }
     .dictionary__etymology {
       font-size: clamp(0.8rem, 2.6vw, 0.9rem);
       opacity: 0.85;
       text-transform: none;
-      letter-spacing: 0.18rem;
+      letter-spacing: 0.14rem;
+      margin: 0;
+      text-align: center;
     }
     @media (max-width: 480px) {
       main {
         gap: 1.25rem;
+        width: 100%;
       }
       h1 {
         letter-spacing: 0.25rem;
       }
       .dictionary {
+        width: min(92vw, 26rem);
+        margin: 0 auto;
         letter-spacing: 0.05rem;
       }
       .dictionary__pronunciation,
       .dictionary__etymology {
         letter-spacing: 0.12rem;
       }
-      .dictionary__definition span {
-        margin-right: 0.35rem;
+      .dictionary__definition {
+        flex-direction: column;
+        gap: 0.35rem;
+        align-items: flex-start;
+      }
+      .dictionary__label {
+        letter-spacing: 0.18rem;
+      }
+      .dictionary__sense-list {
+        padding-left: 1rem;
+        list-style-position: inside;
+        gap: 0.75rem;
+      }
+      .dictionary__note {
+        font-size: 1rem;
+      }
+      body {
+        padding: clamp(1.25rem, 5vw, 2rem);
       }
     }
   </style>
@@ -97,9 +150,17 @@
     <h1>enseul</h1>
     <section class="dictionary" aria-label="definition of enseul">
       <p class="dictionary__pronunciation" aria-label="pronounced en-suhl">/en-suhl/</p>
-      <p class="dictionary__part">adjective</p>
-      <p class="dictionary__definition"><span>1</span>alone together.</p>
-      <p class="dictionary__etymology">etymology: ensemble + seulement</p>
+      <p class="dictionary__definition">
+        <span class="dictionary__label">adj.</span>
+        alone together.
+      </p>
+      <p class="dictionary__part">n.</p>
+      <ol class="dictionary__sense-list">
+        <li>the peculiar loneliness of being surrounded by people whose presence somehow amplifies your solitude&mdash;sitting in a crowded caf&eacute; where every table hums with conversation that doesn't include you, or lying next to someone in bed while your thoughts drift in opposite directions like continents after a rupture, feeling the strange ache of proximity without connection, as if you're all actors on the same stage but reading from different scripts, moving through the same space but occupying separate worlds.</li>
+        <li>the warm enclosure of being cut off from the world with the people you love&mdash;spending long evenings around a table where conversation drifts and circles back like wood smoke, feeling the hours stretch and soften as if time itself has agreed to leave you all alone for a while, savoring the rare gift of collective exile where no one is expected anywhere else, where the only things that matter are happening right here in this room, this clearing, this small radius of lamplight that feels like the whole universe has contracted to just fit the lot of you, together and unreachable.</li>
+      </ol>
+      <p class="dictionary__note">Perhaps it's fitting that the same phrase holds both meanings, that "alone together" can describe both the ache of isolation in a crowd and the contentment of seclusion with your chosen few. The distance between these definitions is shorter than it seems&mdash;both are about boundaries, about who's inside the circle and who's outside, about the thin membrane between loneliness and belonging. The same words, like the same room, can feel like a prison or a sanctuary depending on who else is there, and whether you chose the door that closed behind you.</p>
+      <p class="dictionary__etymology">French ensemble, together + seul, alone.</p>
     </section>
   </main>
 </body>
