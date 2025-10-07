@@ -7,7 +7,5 @@ This repo follows the shared workflow documented at the websites root.
 
 ## Site-Specific Notes
 
-- [ ] Review PR `Add tranquil gradient placeholder landing` after running local checks, then merge when satisfied.
-- [ ] Track branch `feature/gradient-placeholder`; keep gradient hero as-is during copy pass.
-- [x] Append a dictionary-style entry beneath the logotype: phonetic pronunciation (English), definition (“alone together”), and etymology (ensemble + seulement). (See `index.html` responsive block.)
-- [ ] Audit spacing/typography on mobile once the new copy lands; responsive font/spacing clamps added in `index.html`, still needs real device confirmation.
+- [x] Merge PR `Add tranquil gradient dictionary hero`; `main` now carries the dictionary block and responsive tweaks.
+- [ ] Confirm on-device spacing/typography feels right; update notes with any follow-on adjustments needed.
