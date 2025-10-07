@@ -14,24 +14,93 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: clamp(2rem, 6vw, 5rem);
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       background: linear-gradient(160deg, #0f4c5c 0%, #2a9d8f 45%, #b7e4c7 100%);
       color: rgba(255, 255, 255, 0.95);
+      line-height: 1.5;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      width: min(90vw, 32rem);
+      text-align: center;
       text-transform: lowercase;
-      letter-spacing: 0.4rem;
     }
     h1 {
-      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-size: clamp(2.75rem, 12vw, 6.5rem);
       font-weight: 300;
       margin: 0;
-      text-align: center;
+      letter-spacing: 0.4rem;
       text-shadow:
         0 0.5rem 1.5rem rgba(0, 0, 0, 0.25),
         0 0.25rem 0.75rem rgba(15, 76, 92, 0.3);
     }
+    .dictionary {
+      display: grid;
+      gap: 0.75rem;
+      justify-items: center;
+      letter-spacing: 0.08rem;
+    }
+    .dictionary__pronunciation {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      text-transform: none;
+      letter-spacing: 0.18rem;
+    }
+    .dictionary__part {
+      font-size: clamp(0.75rem, 2.3vw, 0.85rem);
+      text-transform: uppercase;
+      letter-spacing: 0.35rem;
+    }
+    .dictionary__definition {
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      line-height: 1.6;
+      max-width: 24rem;
+    }
+    .dictionary__definition span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .dictionary__etymology {
+      font-size: clamp(0.8rem, 2.6vw, 0.9rem);
+      opacity: 0.85;
+      text-transform: none;
+      letter-spacing: 0.18rem;
+    }
+    @media (max-width: 480px) {
+      main {
+        gap: 1.25rem;
+      }
+      h1 {
+        letter-spacing: 0.25rem;
+      }
+      .dictionary {
+        letter-spacing: 0.05rem;
+      }
+      .dictionary__pronunciation,
+      .dictionary__etymology {
+        letter-spacing: 0.12rem;
+      }
+      .dictionary__definition span {
+        margin-right: 0.35rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>enseul</h1>
+  <main>
+    <h1>enseul</h1>
+    <section class="dictionary" aria-label="definition of enseul">
+      <p class="dictionary__pronunciation" aria-label="pronounced en-suhl">/en-suhl/</p>
+      <p class="dictionary__part">adjective</p>
+      <p class="dictionary__definition"><span>1</span>alone together.</p>
+      <p class="dictionary__etymology">etymology: ensemble + seulement</p>
+    </section>
+  </main>
 </body>
 </html>
